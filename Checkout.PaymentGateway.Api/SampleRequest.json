@@ -1,0 +1,17 @@
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa4",
+  "merchantId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "amount": 20,
+  "payload": "test",
+  "paymentDate": "2022-10-24T10:27:03.167Z",
+  "currencyIso": "GBP",
+  "card": {
+    "holderName": "Dilichukwu Okoye",
+    "number": "4165490075885000",
+    "expiryDate": "01/2027",
+    "cvv": "322",
+    "billingInformation": "55 Roland Stree, Newark, NG244PZ, United Kingdom"
+  },
+  "countryCode": "GB",
+  "description": "Payment of goods"
+}
