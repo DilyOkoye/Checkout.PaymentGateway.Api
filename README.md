@@ -226,4 +226,5 @@ Areas of Improvement
 - A much more robust test case alongside with an automated unit test, typical scenarios such as an automated load test to ensure that the api can handle and respond to a specific threashold of request.
 - Efficient file logging that can be fed to various data monitoring tools like Datadog
 
-
+#### ✨Proposed Cloud Technolgy
+Amazon AWS would be my preferrd choice. Due to the potential volume of transaction that would be expected in a typical payment gateway which typically involves processing thousands-millions of request, Amazon Simple Queue Service (SQS) is a fantastic fully managed message queuing service that can reliabily and continuously exchange volumes of request from anywhere in a secured way between publishers and consumers
