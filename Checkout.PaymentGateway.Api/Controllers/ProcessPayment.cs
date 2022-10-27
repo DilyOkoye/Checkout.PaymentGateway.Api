@@ -1,11 +1,10 @@
-﻿using Checkout.PaymentGateway.Api.Filters;
-using LanguageExt;
-using Checkout.PaymentGateway.Api.Extensions;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using System.Net;
+﻿using Checkout.PaymentGateway.Api.Extensions;
+using Checkout.PaymentGateway.Api.Filters;
 using Checkout.PaymentGateway.Application.Contracts.Commands;
 using Checkout.PaymentGateway.Application.Queries;
+using LanguageExt;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Checkout.PaymentGateway.Api.Controllers
 {
@@ -24,7 +23,7 @@ namespace Checkout.PaymentGateway.Api.Controllers
 
 
         [HttpPost]
-         public async Task<IActionResult> NewPayment([FromBody] CreateTransactionCommand command) =>
+        public async Task<IActionResult> NewPayment([FromBody] CreateTransactionCommand command) =>
          await _mediator
         .Send(command)
         .Bind(acc => acc.ToActionResult());

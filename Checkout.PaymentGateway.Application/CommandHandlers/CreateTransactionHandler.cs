@@ -34,7 +34,7 @@ namespace Checkout.PaymentGateway.Application.CommandHandlers
         {
             var result = (IsValidGuid(request.Id.ToString()), request.TransactionDetailsMustBeValid())
           .Apply((id, trans) =>
-            _transactionRepository.GetTransactionAsync(id).AccountMustNotExist()
+            _transactionRepository.GetTransactionAsync(id).TransactionMustNotExist()
               .Map(_ => PersistPayment(
                 TransactionState.New(CreateTransactionState(request)))))
           .Bind(resp => resp)

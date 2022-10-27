@@ -31,7 +31,7 @@ namespace Checkout.PaymentGateway.Application.Tests
         }
 
         [Fact]
-        public async Task HandleCreatedAccount()
+        public async Task HandleCreatedTransaction()
         {
             _transactionRepository
               .Setup(m => m.GetTransactionAsync(It.IsAny<Guid>()))

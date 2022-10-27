@@ -54,21 +54,21 @@ namespace Checkout.PaymentGateway.Application.Validators
         }
 
 
-        public static Validation<ErrorMsg, TransactionState> AccountMustExist(
+        public static Validation<ErrorMsg, TransactionState> TransactionMustExist(
         this TryOptionAsync<TransactionState> self) =>
         self
           .Match(
-            Fail: _ => Fail<ErrorMsg, TransactionState>("Unable to get account info"),
+            Fail: _ => Fail<ErrorMsg, TransactionState>("Unable to get transaction info"),
             Some: Success<ErrorMsg, TransactionState>,
-            None: () => Fail<ErrorMsg, TransactionState>("Account does not exist")
+            None: () => Fail<ErrorMsg, TransactionState>("Transaction does not exist")
           )
           .Result;
 
-        public static Validation<ErrorMsg, Unit> AccountMustNotExist(
+        public static Validation<ErrorMsg, Unit> TransactionMustNotExist(
     this TryOptionAsync<TransactionState> self) =>
     self
       .Match(
-        Fail: _ => Fail<ErrorMsg, Unit>("Unable to get account info"),
+        Fail: _ => Fail<ErrorMsg, Unit>("Unable to get transaction info"),
         Some: acc => Fail<ErrorMsg, Unit>($"Id {acc.Id} already exists"),
         None: () => Success<ErrorMsg, Unit>(unit)
       )
@@ -83,12 +83,12 @@ namespace Checkout.PaymentGateway.Application.Validators
 
             if (!cardCheck.IsMatch(cardNo)) // <1>check card number is valid
                 return false;
-            if (!cvvCheck.IsMatch(cvv)) // <2>check cvv is valid as "999"
+            if (!cvvCheck.IsMatch(cvv)) // check cvv is valid as "999"
                 return false;
 
             var dateParts = expiryDate.Split('/'); //expiry date in from MM/yyyy            
             if (!monthCheck.IsMatch(dateParts[0]) || !yearCheck.IsMatch(dateParts[1])) // <3 - 6>
-                return false; // ^ check date format is valid as "MM/yyyy"
+                return false; // check date format is valid as "MM/yyyy"
 
             var year = int.Parse(dateParts[1]);
             var month = int.Parse(dateParts[0]);

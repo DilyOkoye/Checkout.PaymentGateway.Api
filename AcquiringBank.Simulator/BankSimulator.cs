@@ -14,7 +14,8 @@ namespace AcquiringBank.Simulator
             if (CheckBlacklistedCard(request.CardNumber))
                 return await Task.FromResult(new PaymentResponse(TransactionStatus.Declined, request.PaymentRef, DeclineCodes.SuspectedFraud));
 
-            if (CheckBlacklistedCard(request.CardNumber))
+            //Decline transaction where location is not amongst the listed countries
+            if (CheckAllowableLocations(request.CountryCode))
                 return await Task.FromResult(new PaymentResponse(TransactionStatus.Declined, request.PaymentRef, DeclineCodes.SuspectedFraud));
 
             return await Task.FromResult(new PaymentResponse(TransactionStatus.Settled, request.PaymentRef, null));
@@ -30,7 +31,6 @@ namespace AcquiringBank.Simulator
             return (Helpers.BlacklistedCards.Contains(countryCode));
         }
       
-
 
     }
 }

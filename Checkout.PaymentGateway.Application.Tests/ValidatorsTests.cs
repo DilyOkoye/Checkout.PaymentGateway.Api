@@ -30,11 +30,11 @@ namespace Checkout.PaymentGateway.Application.Tests
           );
 
         [Fact]
-        public void AccountMustNotExist() =>
+        public void TransactionMustNotExist() =>
        Assert.True(
          TryOptionAsync(() => Task.FromResult(
              TransactionState.New(TransactionState.GenerateTransaction())))
-           .AccountMustNotExist()
+           .TransactionMustNotExist()
            .IsFail
        );
 

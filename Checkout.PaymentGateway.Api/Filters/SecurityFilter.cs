@@ -19,9 +19,13 @@ namespace Checkout.PaymentGateway.Api.Filters
         /// <returns>The <see cref="Task"/>.</returns>
         public async Task OnResourceExecutionAsync(ResourceExecutingContext context, ResourceExecutionDelegate next)
         {
-            // Code here executes before action execution.
-            var securityConfiguration =
-                context.HttpContext.RequestServices.GetRequiredService<ISecurityConfiguration>();
+            var configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            //get SecurityConfiguration, can be done via Dependency Injection
+            var securityConfiguration = configuration.GetSection("SecurityConfiguration")
+             .Get<SecurityConfiguration>();
 
             if (securityConfiguration.IsEnabled)
             {

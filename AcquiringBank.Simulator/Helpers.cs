@@ -18,7 +18,8 @@ namespace AcquiringBank.Simulator
         public static readonly List<string> AllowableLocations = new List<string>
         {
             "GB",
-            "IE"
+            "IE",
+            "US"
         };
 
         public static T GetEnumValue<T>(this string str, bool ignoreCase)
