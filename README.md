@@ -212,12 +212,7 @@ This paradigm encourages and promotes:-
 - Easier testing : it’s really easy to test functions
 - Easier debugging
 
-
-Containerization via Docker
-The solution supports containerization via docker
-Running docker-compose build and docker-compose launches it
-
-Areas of Improvement
+**Areas of Improvement**
 - A proper database infrastructure would be ideal instead of an in-memory state
 - A proper queueing in place where once the payment or transaction is saved successfully in a database and a subsequently published to a queue, it can be subscribed via another instance to complete the transaction process
 - A much more robust test case alongside with an automated unit test, typical scenarios such as an automated load test to ensure that the api can handle and respond to a specific threashold of request.
