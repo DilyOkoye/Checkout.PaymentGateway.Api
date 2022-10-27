@@ -214,6 +214,7 @@ This paradigm encourages and promotes:-
 
 **Areas of Improvement**
 - A proper database infrastructure would be ideal instead of an in-memory state
+- Complete containerization using docker
 - A proper queueing in place where once the payment or transaction is saved successfully in a database and a subsequently published to a queue, it can be subscribed via another instance to complete the transaction process
 - A much more robust test case alongside with an automated unit test, typical scenarios such as an automated load test to ensure that the api can handle and respond to a specific threashold of request.
 - Efficient file logging that can be fed to various data monitoring tools like Datadog
