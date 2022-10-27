@@ -2,15 +2,10 @@
 using Checkout.PaymentGateway.Domain.Entities;
 using Checkout.PaymentGateway.Domain.Events;
 using Checkout.PaymentGateway.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Checkout.PaymentGateway.Application.EventHandlers
 {
-   
+
     public class TransactionEventHandler : ITransactionEventHandler
     {
         private readonly IBankSimulator _bankSimulator;
@@ -18,7 +13,7 @@ namespace Checkout.PaymentGateway.Application.EventHandlers
 
         public TransactionEventHandler(ITransactionRepository transactionRepository, IBankSimulator bankSimulator)
         {
-            _transactionRepository = transactionRepository; 
+            _transactionRepository = transactionRepository;
             _bankSimulator = bankSimulator;
         }
 
@@ -34,16 +29,16 @@ namespace Checkout.PaymentGateway.Application.EventHandlers
             var request = CreatePaymentRequest(transaction);
             var response = await _bankSimulator.PostTransactionAsync(request);
             transaction.Status = nameof(response.Status);
-           await _transactionRepository.UpdateTransactionAsync(transaction);
+            await _transactionRepository.UpdateTransactionAsync(transaction);
         }
 
-        public PaymentRequest CreatePaymentRequest(TransactionState transaction) 
+        public PaymentRequest CreatePaymentRequest(TransactionState transaction)
         {
             return new PaymentRequest
             {
                 Amount = transaction.Amount,
                 CardNumber = transaction.CardInfo.Number,
-                CountryCode =transaction.CountryCode,
+                CountryCode = transaction.CountryCode,
                 Currency = transaction.CurrencyIso,
                 CVV = transaction.CardInfo.Cvv,
                 ExpiryDate = transaction.CardInfo.ExpiryDate,
@@ -53,7 +48,7 @@ namespace Checkout.PaymentGateway.Application.EventHandlers
                 MerchantId = transaction.MerchantId,
 
             };
-        
+
         }
     }
 }

@@ -9,10 +9,6 @@ namespace Checkout.PaymentGateway.Application.EventHandlers
 
     public interface ITransactionEventHandler
     {
-        /// <summary>
-        /// Publishes an event
-        /// </summary>
-        /// <param name="Event">The event</param>
         Task PublishAsync<ITransactionEvent>(ITransactionEvent Event);
     }
 }

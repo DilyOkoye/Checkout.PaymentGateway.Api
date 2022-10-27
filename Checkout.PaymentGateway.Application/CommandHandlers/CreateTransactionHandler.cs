@@ -23,7 +23,7 @@ namespace Checkout.PaymentGateway.Application.CommandHandlers
         private readonly ITransactionRepository _transactionRepository;
         private readonly ILogger<CreateTransactionHandler> _logger;
 
-        public CreateTransactionHandler(ITransactionEventHandler transactionEventHandler,ITransactionRepository transactionRepository)
+        public CreateTransactionHandler(ITransactionEventHandler transactionEventHandler, ITransactionRepository transactionRepository)
         {
             _transactionEventHandler = transactionEventHandler;
             _transactionRepository = transactionRepository;
@@ -40,13 +40,13 @@ namespace Checkout.PaymentGateway.Application.CommandHandlers
           .Bind(resp => resp)
           .AsTask();
 
-            _transactionEventHandler.PublishAsync(new CreatedTransactionEvent(CreateTransactionState(request))); 
+            _transactionEventHandler.PublishAsync(new CreatedTransactionEvent(CreateTransactionState(request)));
             return result;
         }
 
         private TransactionState CreateTransactionState(CreateTransactionCommand request)
         {
-            return new TransactionState(request.Id, request.MerchantId, request.Amount, request.Payload, request.PaymentDate, request.CurrencyIso, request.Card,request.CountryCode,request.Description, nameof(TransactionStatus.Settling));
+            return new TransactionState(request.Id, request.MerchantId, request.Amount, request.Payload, request.PaymentDate, request.CurrencyIso, request.Card, request.CountryCode, request.Description, nameof(TransactionStatus.Settling));
         }
 
         private TryOptionAsync<TransactionViewModel> PersistPayment(

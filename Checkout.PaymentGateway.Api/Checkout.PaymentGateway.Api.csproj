@@ -20,7 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\AcquiringBank.Simulator\AcquiringBank.Simulator.csproj" />
     <ProjectReference Include="..\Checkout.PaymentGateway.Application\Checkout.PaymentGateway.Application.csproj" />
-    <ProjectReference Include="..\Checkout.PaymentGateway.Contract\Checkout.PaymentGateway.Contract.csproj" />
   </ItemGroup>
 
 </Project>
