@@ -13,7 +13,7 @@ namespace Checkout.PaymentGateway.Application.Validators
       Optional(str)
         .Where(s => !string.IsNullOrEmpty(s))
         .Where(s => Guid.TryParse(str, out _))
-        .ToValidation<ErrorMsg>($"Id {str} must be a valid Guid")
+        .ToValidation<ErrorMsg>($"payment reference {str} must be a valid payment reference")
         .Map(s => new Guid(s));
 
       
@@ -69,7 +69,7 @@ namespace Checkout.PaymentGateway.Application.Validators
     self
       .Match(
         Fail: _ => Fail<ErrorMsg, Unit>("Unable to get transaction info"),
-        Some: acc => Fail<ErrorMsg, Unit>($"Id {acc.Id} already exists"),
+        Some: acc => Fail<ErrorMsg, Unit>($"Payment reference {acc.Id} already exists"),
         None: () => Success<ErrorMsg, Unit>(unit)
       )
       .Result;
