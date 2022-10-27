@@ -28,7 +28,7 @@ namespace Checkout.PaymentGateway.Application.EventHandlers
         {
             var request = CreatePaymentRequest(transaction);
             var response = await _bankSimulator.PostTransactionAsync(request);
-            transaction.Status = nameof(response.Status);
+            transaction.Status = response.Status.ToString();
             await _transactionRepository.UpdateTransactionAsync(transaction);
         }
 
