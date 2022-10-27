@@ -1,9 +1,6 @@
 # Checkout.PaymentGateway API
 ###### Responsible for validating requests, storing card information and forwarding payment requests and accepting payment responses to and from the acquiring bank.
 
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 #### ✨Deliverables ✨
 1. Build an API that allows a merchant:
 a. To process a payment through your payment gateway.
@@ -56,10 +53,10 @@ The application can be ran via:-
 
 #### Checkout.PaymentGateway.Api
 This project is the entry point api of the solution for handling the two important request
-POST/Payment NewPayment
-GET/Payment/{id}
+- POST/Payment NewPayment
+- GET/Payment/{id}
 
-Sample request for NewPayment
+**Sample request for NewPayment**
 ```json
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa4",
@@ -80,7 +77,7 @@ Sample request for NewPayment
 }
 ```
 
-Sample Successful Response
+**Sample Successful Response**
 ```json
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa4",
@@ -98,7 +95,7 @@ Sample Successful Response
   "status": "Settling"
 }
 ```
-Sample Failure Reponses:400
+**Sample Failure Reponses:400**
 ```json
 {
  [
@@ -147,10 +144,10 @@ Sample Failure Reponses:400
 ]
 }
 ```
-GET/Payment/{id}
+**GET/Payment/{id}**
 Retrieves the previous transaction in the memory cache
 
-Sample Response
+**Sample Response**
 ```json
 {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa4",
@@ -169,27 +166,27 @@ Sample Response
 }
 ```
 
-Error: response status is 404 for payment reference not found
+**Error**: response status is 404 for payment reference not found
 
 Checkout.PaymentGateway.Application
 This class library contains the commandHandler implmentation,Event handlers, Queries, request validations and response viewModels
 
-Checkout.PaymentGateway.Domain
+**Checkout.PaymentGateway.Domain**
 This is where the concepts of the business domain are. This layer has all the information about the business case and the business rules. Here’s where the entities are. 
 
-Checkout.PaymentGateway.Persistence
+**Checkout.PaymentGateway.Persistence**
 This class library contains the repositories; interfaces and implementation of the saved request via MemoryCache
 
-Checkout.PaymentGateway.Api.Tests
+**Checkout.PaymentGateway.Api.Tests**
 This project covers the unit tests for the two enpoints in the ProcessPayment Controller alongside with the different possible result returned by ToActionResult() 
 
-Checkout.PaymentGateway.Application.Tests
+**Checkout.PaymentGateway.Application.Tests**
 This project test the different scenarios for the handlers and behaviours of the different lang ext package used
 
-Checkout.PaymentGateway.Pesistence.Tests
+**Checkout.PaymentGateway.Pesistence.Tests**
 This project covers the Repository Test via MemoryCache
 
-AcquiringBank.Simulator 
+**AcquiringBank.Simulator**
 This class library is a responsible for simulating the responses from a bank.
 It returns a successful response except for scenarios such as using a blacklisted card or where the transation country code is not amongst a list of included countries.
 
