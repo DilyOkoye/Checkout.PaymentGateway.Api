@@ -23,11 +23,10 @@ namespace Checkout.PaymentGateway.Application.CommandHandlers
         private readonly ITransactionRepository _transactionRepository;
         private readonly ILogger<CreateTransactionHandler> _logger;
 
-        public CreateTransactionHandler(ITransactionEventHandler transactionEventHandler,ITransactionRepository transactionRepository, ILogger<CreateTransactionHandler> logger)
+        public CreateTransactionHandler(ITransactionEventHandler transactionEventHandler,ITransactionRepository transactionRepository)
         {
             _transactionEventHandler = transactionEventHandler;
             _transactionRepository = transactionRepository;
-            _logger = logger;
         }
 
 

@@ -16,27 +16,7 @@ namespace Checkout.PaymentGateway.Application.Validators
         .ToValidation<ErrorMsg>($"Id {str} must be a valid Guid")
         .Map(s => new Guid(s));
 
-        public static Validation<ErrorMsg, CreateTransactionCommand> AmountMustBeSet(
-      this CreateTransactionCommand self) =>
-      Optional(self)
-        .Where(acc => acc.Amount != null)
-        .Where(acc => acc.Amount > 0)
-        .ToValidation<ErrorMsg>("Amount must be set and be greater than zero");
-
-        //public static Validation<ErrorMsg, CreateTransactionCommand> ValidateCardInfo(
-        //this CreateTransactionCommand self) =>
-        //Optional(self)
-        //.Where(acc => acc.Card?.Number != null && acc.Card?.ExpiryDate != null && acc.Card?.Cvv != null)
-        //.Where(acc => IsCreditCardInfoValid(acc.Card.Number, acc.Card.ExpiryDate, acc.Card.Cvv))
-        //.ToValidation<ErrorMsg>("Card Information is not Valid");
-
-        public static Validation<ErrorMsg, CreateTransactionCommand> CvvMustBeValid(
-this CreateTransactionCommand self) =>
-Optional(self)
-  .Where(acc => acc.Card?.Cvv != null)
-  .Where(acc => Regex.Replace(acc.Card.Cvv, @"\s+", "").Length == 4)
-  .ToValidation<ErrorMsg>("Cvv be set and be 4 Digit");
-
+      
         private static bool IsAmountValid(decimal amount) 
         {
            bool value =  amount > 0;
@@ -73,12 +53,6 @@ Optional(self)
             return result;
         }
 
-
-    //    public static Validation<ErrorMsg, CreateTransactionCommand> CurrencyMustBeSet(
-    //this CreateTransactionCommand self) =>
-    //Optional(self)
-    //  .Where(acc => acc.CurrencyIso != null)
-    //  .ToValidation<ErrorMsg>("Currency must be set");
 
         public static Validation<ErrorMsg, TransactionState> AccountMustExist(
         this TryOptionAsync<TransactionState> self) =>

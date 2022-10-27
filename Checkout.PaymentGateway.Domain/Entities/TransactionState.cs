@@ -52,5 +52,28 @@ namespace Checkout.PaymentGateway.Domain.Entities
         {
             return new(state.Id, state.MerchantId, state.Amount, state.Payload, state.PaymentDate, state.CurrencyIso, state.CardInfo,state.CountryCode,state.Description, state.Status);
         }
+
+        public static TransactionState GenerateTransaction()
+        {
+            Card card = new Card();
+            card.BillingInformation = "Test";
+            card.Cvv = "322";
+            card.ExpiryDate = "01/2027";
+            card.HolderName = "Dili Okoye";
+            card.Number = "2345678823570000";
+
+            var Id = Guid.NewGuid();
+            var MerchantId = Guid.NewGuid();
+            var Amount = 30;
+            var payload = "Test";
+            var PaymentDate = DateTime.UtcNow;
+            var CurrencyIso = "GBP";
+            var CountryCode = "GB";
+            var Description = "Test";
+            var Status = "Settled";
+
+
+            return new(Id, MerchantId, Amount, payload, PaymentDate, CurrencyIso, card, CountryCode, Description, Status);
+        }
     }
 }

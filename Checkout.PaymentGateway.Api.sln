@@ -23,13 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.PaymentGateway.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.PaymentGateway.Api.Tests", "Checkout.PaymentGateway.Api.Tests\Checkout.PaymentGateway.Api.Tests.csproj", "{F0FCF9CC-39EA-4282-B903-B2A3F40EBB49}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.PaymentGateway.FunctionalTests", "Checkout.PaymentGateway.FunctionalTests\Checkout.PaymentGateway.FunctionalTests.csproj", "{54E9C7A3-195A-4DC7-815D-2C265062BD60}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.PaymentGateway.Persistence.Tests", "Checkout.PaymentGateway.Persistence.Tests\Checkout.PaymentGateway.Persistence.Tests.csproj", "{D3D776D8-86F4-4032-B3E2-438A10889AF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simulator", "Simulator", "{C6A58A1D-EDB4-4DFF-AB33-BA9A8D16CC6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcquiringBank.Simulator", "AcquiringBank.Simulator\AcquiringBank.Simulator.csproj", "{E81C5B8A-4385-4BAF-9335-614248DC77E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcquiringBank.Simulator", "AcquiringBank.Simulator\AcquiringBank.Simulator.csproj", "{E81C5B8A-4385-4BAF-9335-614248DC77E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,10 +67,6 @@ Global
 		{F0FCF9CC-39EA-4282-B903-B2A3F40EBB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0FCF9CC-39EA-4282-B903-B2A3F40EBB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0FCF9CC-39EA-4282-B903-B2A3F40EBB49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54E9C7A3-195A-4DC7-815D-2C265062BD60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54E9C7A3-195A-4DC7-815D-2C265062BD60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54E9C7A3-195A-4DC7-815D-2C265062BD60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54E9C7A3-195A-4DC7-815D-2C265062BD60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3D776D8-86F4-4032-B3E2-438A10889AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3D776D8-86F4-4032-B3E2-438A10889AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3D776D8-86F4-4032-B3E2-438A10889AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -94,7 +88,6 @@ Global
 		{B9271650-A0C5-4F73-AEC2-598DCBD64F14} = {48FD7536-1445-4193-B7A5-9302A5E98737}
 		{7BF48BE8-3FFA-4AD7-A59A-BEFA5BCD5753} = {48FD7536-1445-4193-B7A5-9302A5E98737}
 		{F0FCF9CC-39EA-4282-B903-B2A3F40EBB49} = {48FD7536-1445-4193-B7A5-9302A5E98737}
-		{54E9C7A3-195A-4DC7-815D-2C265062BD60} = {48FD7536-1445-4193-B7A5-9302A5E98737}
 		{D3D776D8-86F4-4032-B3E2-438A10889AF2} = {48FD7536-1445-4193-B7A5-9302A5E98737}
 		{E81C5B8A-4385-4BAF-9335-614248DC77E4} = {C6A58A1D-EDB4-4DFF-AB33-BA9A8D16CC6F}
 	EndGlobalSection

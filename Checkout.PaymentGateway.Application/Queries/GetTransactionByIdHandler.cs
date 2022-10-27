@@ -20,12 +20,10 @@ namespace Checkout.PaymentGateway.Application.Queries
     IRequestHandler<GetPaymentById, CreateTransactionResponse>
     {
         private readonly ITransactionRepository _transactionRepository;
-        private readonly ILogger<GetTransactionByIdHandler> _logger;
 
-        public GetTransactionByIdHandler(ITransactionRepository transactionRepository, ILogger<GetTransactionByIdHandler> logger)
+        public GetTransactionByIdHandler(ITransactionRepository transactionRepository)
         {
             _transactionRepository = transactionRepository;
-            _logger = logger;
         }
 
         public Task<CreateTransactionResponse> Handle(
